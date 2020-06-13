@@ -1,0 +1,22 @@
+package week1.day1;
+
+public class Assignment1 {
+
+	public static void main(String[] args) {
+		// To print the sum of numbers
+             int a=7658, sum=0,Reminder;            
+            while(a>0)
+             {
+            	 Reminder= a%10;
+            	 System.out.println("Reminder is :" +Reminder);
+            	 sum+= Reminder;
+            	 System.out.println("sum is :" +sum);
+            	 a=a/10;
+            	 System.out.println("Quotient is :" +a);
+             }
+            		 
+             System.out.println("The final Sum is :"+sum); 
+             
+	}
+
+}
