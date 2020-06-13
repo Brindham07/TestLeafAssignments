@@ -1,0 +1,30 @@
+package week1.day1;
+
+public class Assignment4 {
+
+	public static void main(String[] args) {
+		// TO find whether a number is a Prime number or not
+		
+		int no=13;
+		boolean flag = false;
+		for(int i=1;i<=no/2;i++)
+		{
+			if (no%2==0)
+			{
+				flag= true;
+				break;
+				}
+		}
+			if(flag== false)	
+			{
+				
+				System.out.println(no+" is a prime no");
+		}
+			else
+			{
+				System.out.println(no+" is not a prime no");
+		}
+			
+	}
+
+}
