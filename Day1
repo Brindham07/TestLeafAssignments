@@ -1,0 +1,21 @@
+package week1.day1;
+
+public class Assignment3 {
+
+	public static void main(String[] args)
+	{
+		// TO find Fibonacci Series for a given range
+		
+		System.out.println("The Fibonacci Series for a given range 1-8 is");
+		int range=8 ,fn=0,sn=1;
+		for(int i=0;i<range;i++)
+		{
+			System.out.println(fn);
+			int sum=fn+sn;		   
+		    fn = sn;
+		    sn = sum; 
+		}
+		
+	}
+
+}
