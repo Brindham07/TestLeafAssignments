@@ -1,0 +1,33 @@
+package week1.day2;
+import java.util.*;
+public class Assignment1b {
+	public static void main(String[] args)
+	{
+		// TO a) Convert the String to character array
+    String text="changeme";
+    System.out.println("Before Changing to char:"+text);
+	char[] aa = text.toCharArray();  
+	System.out.println("After Changing to char:" +Arrays.toString(aa));
+    String a[]= text.split("");   
+       //  b) Traverse through each character (using loop)
+    for(int i =0 ;i<aa.length;i++)
+    {    	
+      //c)find the odd index within the loop    	
+ if (i%2==0)
+ {    	
+    	//d) change the character to UpperCase
+    	String b= a[i].toUpperCase();    	
+    	System.out.println(b);
+  }
+ else 
+ {
+	 System.out.println(a[i]);
+	 
+ }
+    }
+    }
+	}
+  
+	
+
+
