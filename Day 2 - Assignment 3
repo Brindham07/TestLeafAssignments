@@ -1,0 +1,72 @@
+package week1.day2;
+
+import java.util.Arrays;
+
+public class Assignment1c {
+
+	public void getSorted()
+	{
+		String text1 = "stops";
+		String text2 = "potss";
+		char[] a1 = text1.toCharArray();
+		char[] b1= text2.toCharArray();
+		 Arrays.sort(a1);
+		 System.out.println("After Sorting text1:" +Arrays.toString(a1));
+		 Arrays.sort(b1);
+		 System.out.println("After Sorting text2:" +Arrays.toString(b1));
+	}
+	
+	public void getChecked()
+	{
+		String text1 = "stops";
+		String text2 = "potss";
+		char[] a1 = text1.toCharArray();
+		char[] b1= text2.toCharArray();
+		Arrays.sort(a1);
+		Arrays.sort(b1);
+		for (int j = 0; j <a1.length; j++) {
+			if(a1[j]==b1[j]) 
+			{
+				System.out.println("Both the arrays have same value " +a1[j]);
+				
+			}
+			else
+			{
+				System.out.println("Both the arrays do not have same value");
+				break;
+			}
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String text1 = "stops";
+		String text2 = "potss";
+		int a= text1.length();
+		int b= text2.length();
+		if(a==b)    // check if the length are equal 
+		{
+			System.out.println("The no of letters are equal"); 
+			char[] a1 = text1.toCharArray();  // Converting to char
+			char[] b1= text2.toCharArray();
+			for (int i = 0; i <a; i++) 
+			{
+				
+				System.out.println(a1[i]);
+				
+			}
+			for (int j = 0; j < b1.length; j++)
+			{
+				System.out.println(b1[j]);
+			}
+		}	
+		else {
+			
+			System.out.println("The no of letters are not equal");
+		}
+		Assignment1c obj= new Assignment1c();
+		obj.getSorted();
+		obj.getChecked();
+		
+	}
+
+}
