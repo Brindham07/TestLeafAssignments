@@ -93,11 +93,7 @@ public class CreateLead {
 		*/
 		WebElement btnCreateLead = driver.findElementByXPath("//input[@class='smallSubmit']");
 		btnCreateLead.click();	
-		
 		driver.quit();
-		
-		
-		
 	}
 	
 }
