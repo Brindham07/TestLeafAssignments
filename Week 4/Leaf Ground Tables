@@ -1,0 +1,61 @@
+package week4.assignment;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class TablesLeafGround {
+
+	public static void main(String[] args) {
+		// Load the URl
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
+		ChromeDriver driver = new ChromeDriver();
+		driver.get("http://leafground.com/pages/table.html");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
+		// Find the No of Rows Present in the Table
+		WebElement eleTable = driver.findElementById("table_id");
+		List<WebElement> allRow = eleTable.findElements(By.tagName("tr"));
+		System.out.println("The No of Rows Present in the Table are: " + allRow.size());
+		int colSize = 0;
+		// Find the No of Columns Present in the Table
+		for (int i = 1; i < allRow.size(); i++) {
+			WebElement eachRow = allRow.get(i);
+			List<WebElement> allColumn = eachRow.findElements(By.tagName("td"));
+			colSize = allColumn.size();
+		}
+		System.out.println("The No of Columns Present in the Table are: " + colSize);
+		// Get the Progress value of Learn to interact with elements
+		WebElement row2 = allRow.get(2);
+		List<WebElement> Column2 = row2.findElements(By.tagName("td"));
+		WebElement data1 = Column2.get(0);
+		WebElement data2 = Column2.get(1);
+		System.out.println("The Progress Value of " + data1.getText() + " is: " + data2.getText());
+       //Compare the Progress and find the minimum value
+		List<WebElement> progress = driver.findElementsByXPath("//table//tr//td[2]");
+		List<Integer> Percentage = new ArrayList<Integer>();
+		for (WebElement eachprogress : progress) {
+			String textpercentage = eachprogress.getText();
+			Percentage.add(Integer.parseInt(textpercentage.replaceAll("%", "")));
+		}
+		Integer min = Collections.min(Percentage);
+		// Check the Vital task for the minimum value
+		for (int i = 1; i < allRow.size(); i++) {
+			WebElement eachRow = allRow.get(i);
+			List<WebElement> allColumn = eachRow.findElements(By.tagName("td"));
+			if ((Integer.parseInt(allColumn.get(1).getText().replace("%", "")) == min)) {
+				driver.findElementByXPath("//td[contains(text(),'" + min + "')]/following-sibling::td/input").click();
+				System.out.println("The Vital Task of lowest Progress is clicked Successfully");
+			}
+		}
+
+	}
+}
